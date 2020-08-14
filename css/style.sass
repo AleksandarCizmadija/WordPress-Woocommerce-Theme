@@ -1,0 +1,673 @@
+$main-color: #94c550
+$dark-main-color: #6d9238
+$white: #ffffff
+$dark: #000000
+$lightText: rgba(0,0,0, 0.7)
+
+@mixin transition()
+    transition: all 0.2s linear
+@mixin txShadox()
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5)
+@mixin inspect()
+    border: 1px solid red
+@mixin perfectCenter()
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+@mixin background-image()
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-position: center
+    background-size: cover
+@mixin before-background-overlay()
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,0.5)
+    z-index: -1
+    
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap')
+
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    &::before, &::after
+        box-sizing: border-box
+body 
+    font-family: 'Poppins', sans-serif
+ul 
+    list-style: none
+a 
+    text-decoration: none
+img 
+    max-width: 100%
+    height: auto
+    display: block
+        
+.container
+    width: 100%
+    padding-left: 20px
+    padding-right: 20px
+    margin: 2rem auto
+
+.header-nav
+    background: $main-color
+    // padding: 1rem 0
+    color: $white
+    font-size: 0.7rem
+    a 
+        color: $white
+        @include transition()
+        &:hover
+            color: $dark
+    .container
+        margin: 0 auto
+        &>*
+            padding: 0.5rem 0
+.main-nav
+    background: #000
+    padding: 1rem 0
+    .menu-items
+        margin: 0 auto
+        // padding: 1rem
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: center
+        a 
+            color: $white
+        .logo
+            font-size: 1.3rem
+            text-transform: uppercase
+            font-weight: bold
+        .menu-bar
+            font-size: 1.2rem
+        .links
+            width: 100%
+            max-height: 0
+            overflow: hidden
+            @include transition()
+            li 
+                padding: 1rem 0
+                a
+                    &:hover
+                        color: $main-color
+.hero
+    width: 100%
+    min-height: 100vh
+    background-image: url(../images/market.jpg)
+    text-align: center
+    color: $white
+    position: relative
+    z-index: 10
+    @include perfectCenter()
+    @include background-image()
+    @include txShadox()
+    &::before
+        @include before-background-overlay()
+    &>* 
+        margin: 0.5rem 0
+    h1
+        font-family: 'Caveat', cursive
+        font-size: 3.5rem
+        font-weight: 100
+    p 
+        text-transform: uppercase
+        letter-spacing: 3px
+    
+.labels 
+    display: flex
+    flex-direction: column
+    text-align: center
+    justify-content: center
+    align-items: center
+    
+    .label 
+        display: flex
+        flex-direction: column
+        text-align: center
+        justify-content: center
+        align-items: center
+        margin: 1rem 0
+        &:nth-child(1) .icon
+            background: #e4b2d6
+        &:nth-child(2) .icon
+            background: #dcc698
+        &:nth-child(3) .icon
+            background: #a2d1e1
+        &:nth-child(4) .icon
+            background: #dcd691
+        .icon 
+            border-radius: 50%
+            padding: 1.5rem
+            position: relative
+            &::before
+                content: ''
+                position: absolute
+                top: 50%
+                left: 50%
+                width: 90px
+                height: 90px
+                transform: translate(-50%,-50%)
+                border-radius: 50%
+                border: 1px solid rgba(255,255,255, 0.4)
+            img 
+                text-align: center
+                width: 60px
+        .text
+            h5 
+                text-transform: uppercase
+                margin: 0.8rem 0
+            p
+                text-transform: uppercase
+                color: $lightText
+                font-size: 0.8rem
+
+.jumbotron
+    width: 100%
+    min-height: 40vh
+    position: relative
+    z-index: -1
+    @include background-image()
+    @include perfectCenter()
+    &::before
+        @include before-background-overlay()
+    h2 
+        font-size: 2rem
+        color: $white
+        z-index: 10
+        @include txShadox()
+        
+footer 
+    .footer
+        padding: 1rem 
+        margin-bottom: 1rem
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        h5 
+            font-size: 1rem
+            padding: 0.5rem 0
+        &>*
+            margin: 1.8rem 0
+            width: 250px
+        &-veg
+            p 
+                color: $lightText
+                font-size: 0.9rem
+            .footer-social
+                margin-top: 1rem
+                a 
+                    color: $dark
+                    background: #eeeeee
+                    border-radius: 50%
+                    width: 40px
+                    height: 40px
+                    font-size: 1.5rem
+                    margin: 0.4rem
+                    display: inline-flex
+                    justify-content: center
+                    align-items: center
+                    @include transition()
+                    &:hover 
+                        background: lighten($dark, 80%)
+        &-links, &-help
+            li 
+                margin: 0.5rem 0
+                a 
+                    color: $dark
+                    font-size: 0.9rem
+                    @include transition()
+                    &:hover 
+                        color: lighten($dark, 30%)
+        &-question
+            font-size: 0.9rem
+            div
+                margin: 0.5rem 0
+                a 
+                    color: $dark
+                    @include transition()
+                    &:hover 
+                        color: lighten($dark, 30%)
+
+.copyright
+    text-align: center
+    font-size: 0.9rem
+    margin-top: 0
+    .footer-link
+        color: $dark
+        text-decoration: underline
+        @include transition()
+        &:hover 
+            color: $dark-main-color
+
+.about
+    @include perfectCenter()
+    &>*
+        margin: 1rem 0
+    &-text
+        &>*
+            margin: 0.5rem 0
+        h2
+            font-size: 2rem
+        p 
+            color: $lightText
+    &-video
+        background: url(../images/cherry-tomatoes.jpg) no-repeat center/cover
+        width: 100%
+        height: 300px
+        @include perfectCenter()
+        a 
+            color: $white
+            width: 80px
+            height: 80px
+            border-radius: 50%
+            background: $main-color
+            font-size: 1.32rem
+            animation: vibe 2s infinite
+            @include perfectCenter()
+            @include transition()
+            &:hover
+                background: darken($main-color, 10%)
+.about-labels                
+    background-color: #F7F6F2
+    padding: 1.5rem
+
+@keyframes vibe
+    0%
+        box-shadow: 0 0 0 0 rgba(81, 170, 29, 0.4)
+    70%    
+        box-shadow: 0 0 0 20px rgba(78, 149, 37, 0) 
+    100%
+        box-shadow: 0 0 0 0 rgba(92, 224, 15, 0) 
+
+.scroll
+    background: url(../images/fruit.jpg) no-repeat center/cover
+    padding: 2rem
+    position: relative
+    z-index: -1
+    &::before
+        @include before-background-overlay()
+    .scrolled
+        display: flex
+        align-items: center
+        justify-content: space-between
+        text-align: center
+        color: $white
+        z-index: 10
+        @include txShadox()
+        h3 
+            font-size: 1.5rem
+            font-weight: normal
+        p 
+            font-size: 0.9rem
+            font-weight: 100
+
+.archives
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    align-items: flex-start
+    .archive        
+        width: 450px
+        margin: 0.5rem
+        padding: 1rem
+        box-shadow: 0 0 10px rgba(0,0,0,0.3)
+        &>*
+            margin: 0.5rem 0
+        h3 
+            text-align: center
+        .img-link
+            @include transition()
+            &:hover 
+                img
+                    opacity: 0.8
+            img 
+                margin: auto
+                @include transition()
+            // width: 200px
+
+.paginations
+    @include perfectCenter()
+    .navigation.pagination
+        .nav-links
+            &>*
+                color: $dark
+                border: 1px solid rgba(0,0,0,0.2)
+                padding: 5px 10px
+                @include transition()
+                &:hover
+                    background: $main-color
+            .current
+                background: $main-color
+                color: $white
+.single-blog-post
+    display: flex
+    flex-direction: column    
+    .blog-post
+        &-text
+            text-align: justify
+            &>*
+                margin: 1rem 0    
+    .blog-sidebar
+        h5 
+            color: $dark-main-color
+            text-align: center
+            font-weight: 500
+            font-size: 1.3rem
+        .recent-posts 
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            .recent-blog
+                display: flex
+                align-items: center
+                justify-content: center
+                width: 250px
+                margin: 1rem
+                &>*
+                    margin: 0.5rem
+                a 
+                    color: $dark
+                    @include transition()
+                    &:hover 
+                        color: $main-color
+                        img 
+                            opacity: 0.8
+                    img 
+                        @include transition()
+.page-404
+    &>*
+        margin-top: 2rem
+    .blog-sidebar-404
+        h5 
+            color: $dark-main-color
+            text-align: center
+            font-weight: 500
+            font-size: 1.3rem
+        .recent-posts-404
+            display: flex
+            flex-wrap: wrap    
+            justify-content: center
+            align-items: center
+            .recent-blog-404
+                display: flex
+                align-items: center
+                justify-content: center
+                width: 250px
+                margin: 1rem
+                box-shadow: 0 0  10px rgba(0,0,0,0.3)
+                &>*
+                    margin: 0.5rem
+                    a 
+                        color: $dark
+                        @include transition()
+                        &:hover 
+                            color: $main-color
+                            img 
+                                opacity: 0.8
+                        img 
+                            @include transition()
+        
+.current-menu-item 
+    a
+        border-bottom: 2px solid $main-color
+        
+#woocommerce_products-2
+    list-style: none
+    h4 
+        text-align: center
+    .product_list_widget
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        li 
+            border: 1px solid rgba(0,0,0,0.2)
+            text-align: center
+            width: 300px
+            height: 350px
+            margin: 0.5rem 
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            a 
+                img 
+                    width: 200px
+                    height: 150px
+                    object-fit: cover
+                    float: none
+                .product-title
+                    color: $dark
+            .woocommerce-Price-amount
+                color: $main-color
+            .button, .added_to_cart
+                background: $main-color
+                color: $white
+                padding: 10px 15px
+                border-radius: 30px
+                text-shadow: none
+                font-size: 0.9rem
+                font-weight: 450
+                @include transition()
+                &:hover 
+                    background: darken($main-color, 10%)
+            .added_to_cart
+                padding: 8px 10px
+                margin-top: 1rem
+                background: darken($main-color, 10%)
+                &:hover 
+                    background: $main-color
+.container
+    .woocommerce
+        .woocommerce-info 
+            border-top-color: $main-color
+            &::before
+                color: $main-color
+        .return-to-shop
+            .button 
+                background: $main-color
+                color: $white
+                padding: 10px 15px
+                border-radius: 30px
+                text-shadow: none
+                font-size: 0.9rem
+                font-weight: 450
+                @include transition()
+                &:hover 
+                    background: darken($main-color, 10%)
+
+.products
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    .product    
+        .button
+            background: $main-color
+            color: $white
+            padding: 10px 15px
+            border-radius: 30px
+            text-shadow: none
+            font-size: 0.9rem
+            font-weight: 450
+            @include transition()
+            &:hover 
+                background: darken($main-color, 10%)
+                color: $white
+        .added_to_cart 
+            color: darken($main-color, 15%)
+            @include transition()
+            &:hover
+                color: $main-color
+
+.product-quantity
+    .quantity
+        .input-text.qty.text
+            height: 100% !important
+            display: block
+.woocommerce            
+    .woocommerce-cart-form
+        .shop_table
+            tbody
+                tr
+                    .actions
+                        .button
+                            background: $main-color
+                            color: $white
+                            @include transition()
+                            &:hover 
+                                background: darken($main-color, 10%)
+                            
+    .cart-collaterals            
+        .cart_totals
+            .shop_table 
+                tbody
+                    .woocommerce-shipping-totals
+                        td
+                            .woocommerce-shipping-calculator
+                                .shipping-calculator-button
+                                    color: $main-color
+                            .shipping-calculator-form
+                                p 
+                                    .button
+                                        background: $main-color
+                                        color: $white
+                                        padding: 10px 15px
+                                        text-shadow: none
+                                        font-size: 0.9rem
+                                        font-weight: 450
+                                        @include transition()
+                                        &:hover 
+                                            background: darken($main-color, 10%)
+                                            color: $white 
+            .wc-proceed-to-checkout            
+                .checkout-button 
+                    background: $main-color
+                    @include transition()
+                    &:hover 
+                        background: darken($main-color, 10%)
+
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected]
+    background-color: $main-color
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt 
+    background-color: $main-color
+    @include transition()
+    &:hover 
+        background: darken($main-color, 10%)
+
+.woocommerce 
+    .woocommerce-MyAccount-navigation
+        ul 
+            li 
+                margin: 8px 0
+                a
+                    color: $dark
+                    @include transition()
+                    &:hover
+                        color: $main-color
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button
+    background: $main-color
+    color: $white
+    @include transition()
+    &:hover 
+        background: darken($main-color, 10%)
+        color: $white
+mark 
+    background-color: lighten($main-color, 20%)
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea
+    padding: 10px
+    border-radius: 5px
+    border: 1px solid rgba(0,0,0,0.3)
+
+.woocommerce ul.products li.product a
+    &:hover  
+        img 
+            opacity: 0.8
+    img 
+        @include transition()
+
+        
+.btn
+    background: $main-color
+    color: $white
+    padding: 10px 15px
+    border-radius: 30px
+    text-shadow: none
+    display: inline-block
+    @include transition()
+    &:hover 
+        background: darken($main-color, 10%)
+
+@media (min-width: 576px) 
+    .container
+        max-width: 540px
+
+
+@media (min-width: 768px) 
+    .container
+        max-width: 720px
+    .header-nav
+        .container
+            display: flex
+            justify-content: space-between
+            font-size: 0.9rem
+    .main-nav
+        background: $white
+        .menu-items
+            .logo 
+                color: $main-color
+            .menu-bar 
+                display: none
+            .links
+                width: auto
+                max-height: inherit
+                display: flex
+                li 
+                    padding: 1rem
+                    a 
+                        color: $dark
+    .hero 
+        h1
+            font-size: 5rem
+    .labels
+        flex-direction: row
+        justify-content: space-between
+    .about
+        flex-direction: row
+        &>*
+            flex: 1
+    .scroll
+        .scrolled
+            h3 
+                font-size: 2.5rem
+                font-weight: normal
+            p 
+                font-size: 1.2rem
+                font-weight: 10
+    .archives
+        .archive        
+            width: 300px
+
+
+@media (min-width: 992px) 
+    .container
+        max-width: 960px
+    .single-blog-post
+        flex-direction: row
+
+
+@media (min-width: 1200px) 
+    .container
+        max-width: 1140px
